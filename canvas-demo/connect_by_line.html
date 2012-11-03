@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      canvas {
+        border: 1px solid #9C9898;
+      }
+    </style>
+    <script src="http://www.html5canvastutorials.com/libraries/kinetic-v4.0.0.js"></script>
+    <script>
+      function updateDottedLines(layer) {
+        
+      
+        
+        var cA = layer.get('#cA')[0];
+        var cB = layer.get('#cB')[0];
+
+                var t1 = layer.get('#t1')[0];
+
+        var lineA = layer.get('#lineA')[0];
+
+        lineA.setPoints([cA.attrs.x, cA.attrs.y, cB.attrs.x, cB.attrs.y]);
+        
+        t1.attrs.x = cA.attrs.x - t1.getTextWidth() / 2;
+        t1.attrs.y = cA.attrs.y - t1.getTextHeight() / 2;
+        
+        //cA.setRadius(t1.getTextWidth() / 2 + 10);
+        cA.setRadius({x:t1.getTextWidth() / 2 + 10,y:(t1.getTextWidth() / 2 + 10) * .8});
+        
+        
+      }
+      function buildAnchor(layer, x, y) {
+
+
+
+        // add hover styling
+        anchor.on("mouseover", function() {
+          document.body.style.cursor = "pointer";
+          this.setStrokeWidth(4);
+          layer.draw();
+        });
+        anchor.on("mouseout", function() {
+          document.body.style.cursor = "default";
+          this.setStrokeWidth(0);
+          layer.draw();
+        });
+        
+        layer.add(anchor);
+		return anchor;
+      }
+
+
+      window.onload = function() {
+        var stage = new Kinetic.Stage({
+          container: "container",
+          width: 1000,
+          height: 600
+        });
+
+        var layer = new Kinetic.Layer();
+        //var curveLayer = new Kinetic.Layer();
+
+
+		 // bound below y=50
+        var t1 = new Kinetic.Text({
+          id: "t1",
+          x: 2,
+          y: 2,
+          fill: '#aaffff',
+          strokeWidth: 0,
+          fontSize: 18,
+          fontFamily: 'Calibri',
+          text: 'hi there, i m an ellipse',
+          textFill: 'black',
+          padding: 1,
+          draggable: true,
+          dragBoundFunc: function(pos) {
+            var newY = pos.y < 50 ? 50 : pos.y;
+            return {
+              x: pos.x,
+              y: newY
+            };
+          }
+        });        
+        
+        
+          var lineA = new Kinetic.Line({
+          points: [73, 70, 340, 23],
+          strokeWidth: 3,
+          stroke: "black",
+          lineCap: "round",
+          id: "lineA",
+          opacity: 0.3
+        });
+
+        
+        var cA = new Kinetic.Ellipse({
+          x: 200,
+          y: 300,
+          radius: {x:90,y:70},
+          stroke: "#666",
+          fill: "#aaffff",
+          strokeWidth: 2,
+          id: "cA",
+          draggable: true
+        }); 
+        
+        
+        var cB = new Kinetic.Circle({
+          x: 200,
+          y: 50,
+          radius: 30,
+          stroke: "#666",
+          fill: "#ffd",
+          strokeWidth: 2,
+          id: "cB",
+          draggable: true
+        }); 
+		
+
+        
+		layer.add(lineA);
+        layer.add(cB);
+        layer.add(cA);
+        layer.add(t1);
+        
+
+        
+        /*
+         * add custom property curve objects to layer so that
+         * they can be modified by reference
+         */
+        
+		        layer.beforeDraw(function() {
+          //drawCurves(curveLayer.getCanvas(), layer.quad, layer.bezier);
+          updateDottedLines(layer);
+        });
+
+        
+
+        //stage.add(curveLayer);
+        stage.add(layer);
+      };
+
+    </script>
+  </head>
+  <body onmousedown="return false;">
+    <div id="container"></div>
+  </body>
+</html>
