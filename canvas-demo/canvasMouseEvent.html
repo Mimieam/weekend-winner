@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+      canvas {
+        border: 1px solid #9C9898;
+      }
+    </style>
+    <script src="http://www.html5canvastutorials.com/libraries/kinetic-v4.0.3.js"></script>
+    <script>
+      function writeMessage(messageLayer, message) {
+        var context = messageLayer.getContext();
+        messageLayer.clear();
+        context.font = '18pt Calibri';
+        context.fillStyle = 'black';
+        context.fillText(message, 10, 25);
+      }
+
+      window.onload = function() {
+        var stage = new Kinetic.Stage({
+          container: 'container',
+          width: 578,
+          height: 200
+        });
+       
+        var shapesLayer = new Kinetic.Layer();
+        var messageLayer = new Kinetic.Layer();
+        
+        // add transparent rectangle to enable mouse event on whole canvas
+        var rect = new Kinetic.Rect({
+            x:0,
+            y:0,
+            width:stage.getWidth(),
+            height:stage.getHeight(),
+            stroke:0
+        });
+
+        rect.on('click', function() {
+            var mousePos = stage.getMousePosition();
+            var x = mousePos.x;
+            var y = mousePos.y;
+            writeMessage(messageLayer,'clicked on canvas '+'x:'+x+', y:'+y);
+        });
+        
+        rect.on('dblclick', function() {
+            writeMessage(messageLayer,'double clicked on canvas');
+        });
+
+        shapesLayer.add(rect);
+
+        stage.add(shapesLayer);
+        stage.add(messageLayer);
+      };
+
+    </script>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+</html>
