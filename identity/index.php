@@ -3,7 +3,8 @@ include dirname(__FILE__).'/../common.inc.php';
 if (!empty($_POST['method'])) {
 	if ($_POST['method'] == 'login') {
 	    $result = verify_assertion($_POST['assertion']);
-	    if ($result->status === 'okay') {	    	$_SESSION['user'] = $result->email;
+	    if ($result->status === 'okay') {
+	       	$_SESSION['user'] = $result->email;
 	    }
 	    header('Content-type: application/json');
 	    echo json_encode($result);
