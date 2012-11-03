@@ -4,8 +4,6 @@
     <meta charset="utf-8">
     <title><?php echo $pageTitle; ?> &middot; BubbleDo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -41,7 +39,7 @@
               <li id="fat-menu" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo htmlspecialchars($_SESSION['user']); ?></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                  <li><a href="settings.php" class="navbar-link" id="signout">Features &amp; Settings</a></li>
+                  <li><a href="settings.php" class="navbar-link">Features &amp; Settings</a></li>
                   <li><a href="#" class="navbar-link" id="signout">Logout</a></li>
                 </ul>
               </li>
