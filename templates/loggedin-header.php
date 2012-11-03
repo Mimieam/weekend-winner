@@ -32,8 +32,7 @@
             <a class="brand" href="#">BubbleDo</a>
             <ul class="nav" role="navigation">
               <li class="active"><a href="#">Topic One</a></li>
-              <li><a href="#about">Topic Two</a></li>
-              <li><a href="#contact">Topic Three</a></li>
+              <li><a href="#about"><i class="icon-plus-sign icon-white"></i>&nbsp;Create Topic</a></li>
             </ul>
             <ul class="nav pull-right">
               <li id="fat-menu" class="dropdown">
