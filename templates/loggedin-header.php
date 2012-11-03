@@ -29,10 +29,19 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <div class="nav-collapse collapse">
-            <a class="brand" href="#">BubbleDo</a>
+            <span class="brand">BubbleDo</span>
             <ul class="nav" role="navigation">
-              <li class="active"><a href="#">Topic One</a></li>
-              <li><a href="#about"><i class="icon-plus-sign icon-white"></i>&nbsp;Create Topic</a></li>
+              <?php foreach ($topics AS $topicId => $topicName): ?>
+                <?php if ($user->getViewedTopicId() == $topicId): ?>
+                  <li class="active">
+                    <a href="#" data-toggle="modal" data-target="#changeTopic"><i class="icon-edit icon-white"></i>&nbsp;&nbsp;<?php echo htmlspecialchars($topicName); ?></a>
+                  </li>
+                <?php else: ?>
+                  <li><a href=".?topic=<?php echo $topicId; ?>"><?php echo htmlspecialchars($topicName); ?></a></li>
+                <?php endif; ?>
+              <?php endforeach; ?>
+              <li><a href="#" data-toggle="modal" data-target="#newTopic"><i class="icon-plus-sign icon-white"></i>&nbsp;Create Topic</a>
+              </li>
             </ul>
             <ul class="nav pull-right">
               <li id="fat-menu" class="dropdown">
