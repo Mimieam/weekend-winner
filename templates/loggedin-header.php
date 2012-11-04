@@ -20,6 +20,7 @@
         height: 100%;
         margin: 0;
         background: #b2ffff url(img/bubble-do-blue-sky.jpg) no-repeat;
+        background-position: left bottom;
         /*
         background-repeat: no-repeat;
         background-attachment: fixed;
