@@ -1,5 +1,16 @@
+        <div class="navbar navbar-fixed-bottom navbar-inverse">
+            <div class="navbar-inner">
+                <form class="navbar-search pull-right" onsubmit="alert('Just a demo.');return false">
+                    <input type="text" class="search-query" placeholder="Search">
+                </form>
+                <ul class="pager" style="margin:4px 0 0;padding:0">
+                    <li><a href="#">Create Task</a></li>
+                    <li class="disabled"><a href="#">Create Associated Task</a></li>
+                    <li class="disabled"><a href="#">Create Association</a></li>
+                </ul>
+            </div>
+        </div>
     </div> <!-- /container -->
-
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -10,7 +21,7 @@
     include dirname(__FILE__).'/persona-handler.inc.php';
     ?>
     <!-- Modal -->
-    <div id="newTopic" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="newTopic" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 style="margin:0 0 -15px;padding:0">Create New Topic</h3>
@@ -29,7 +40,7 @@
         </fieldset>
       </form>
     </div>
-    <div id="changeTopic" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="changeTopic" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 style="margin:0 0 -15px;padding:0">Update Topic</h3>

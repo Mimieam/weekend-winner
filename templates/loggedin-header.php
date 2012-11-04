@@ -46,9 +46,9 @@
             <ul class="nav pull-right">
               <li id="fat-menu" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo htmlspecialchars($_SESSION['user']); ?></a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                  <li><a href="settings.php" class="navbar-link">Features &amp; Settings</a></li>
-                  <li><a href="#" class="navbar-link" id="signout">Logout</a></li>
+                <ul class="dropdown-menu" role="menu">
+                  <li role="menuitem"><a href="settings.php" class="navbar-link">Features &amp; Settings</a></li>
+                  <li role="menuitem"><a href="#" class="navbar-link" id="signout">Logout</a></li>
                 </ul>
               </li>
             </ul>
@@ -56,5 +56,4 @@
         </div>
       </div>
     </div>
-
     <div class="container">

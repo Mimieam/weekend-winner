@@ -36,7 +36,7 @@ if (empty($_REQUEST['topic'])) {
 		die('Invalid access attempt.');
 	}
 }
-$pageTitle = 'BubbleDo';
+$pageTitle = $topic->getName();
 include 'templates/loggedin-header.php';
 include 'templates/loggedin-footer.php';
 unset($_SESSION['message']);
