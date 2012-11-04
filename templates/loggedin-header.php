@@ -156,19 +156,17 @@
               <?php endif; ?>
               </li>
             </ul>
-            <ul class="nav pull-right" style="margin-top:10px">
-              <li id="fat-menu" class="dropdown">
-                <div>
-                  <img src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim($_SESSION['user']))); ?>?s=40" class="img-rounded pull-right" style="display:block; margin-top:-2px; margin-left: 0px; margin-right: -10px; width:40px; height: 40px"/>
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white; display: inline-block; padding-top:18px; padding-right: 20px">
-                    <?php echo htmlspecialchars($_SESSION['user']); ?>
-                  </a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li role="menuitem"><a href="settings.php" class="navbar-link">Features &amp; Settings</a></li>
-                    <li role="menuitem"><a href="about.php" class="navbar-link">About</a></li>
-                    <li role="menuitem"><a href="#" class="navbar-link" id="signout">Logout</a></li>
-                  </ul>
-                </div>
+            <ul class="nav pull-right" style="margin-top:0; margin-bottom: 0">
+              <li id="fat-menu" class="dropdown" style="position:relative; padding-right: 40px; padding-top: 12px">
+                <img src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim($_SESSION['user']))); ?>?s=40" class="img-rounded" style="position:absolute;right:-5px;top: 8px"/>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white; ">
+                  <?php echo htmlspecialchars($_SESSION['user']); ?>
+                </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li role="menuitem"><a href="settings.php" class="navbar-link">Features &amp; Settings</a></li>
+                  <li role="menuitem"><a href="about.php" class="navbar-link">About</a></li>
+                  <li role="menuitem"><a href="#" class="navbar-link" id="signout">Logout</a></li>
+                </ul>
               </li>
             </ul>
           </div><!--/.nav-collapse -->
