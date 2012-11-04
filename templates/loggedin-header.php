@@ -33,11 +33,8 @@
       .container {
         position: relative;
       }
-      .colorpicker, .datepicker, .lightbox, .lightbox *  {z-index:12000 !important;}
-      .modal-backdrop {z-index: 1000 !important;}
-      .modal-backdrop * {z-index: 1001 !important;}
-      div.navbar {
-        z-index:12001;
+      #top-navbar > div, #bottom-navbar > div{
+        height: 48px;
       }
       div.task-container {
         position: absolute;
@@ -49,7 +46,14 @@
         border-radius: 25px;
         padding: 10px;
         cursor: pointer;
-        z-index: 1;
+      }
+
+      .colorpicker, .datepicker, {z-index:12000;}
+      div.navbar {
+        z-index:400;
+      }
+      div.task-container {
+        z-index: 0;
       }
       div.task-container.dragging {
         cursor: move;
@@ -59,7 +63,6 @@
         cursor: default;
       }
     </style>
-
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -72,7 +75,7 @@
   </head>
 
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" id="top-navbar">
       <div class="navbar-inner">
         <div class="container-fluid">
           <div class="nav-collapse collapse">
@@ -95,7 +98,7 @@
             <ul class="nav pull-right">
               <li id="fat-menu" class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  <img src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim($_SESSION['user']))); ?>?s=30" class="img-rounded pull-right" style="display:block; margin-top:-5px; margin-left: 10px; margin-right: -20px"/>
+                  <img src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim($_SESSION['user']))); ?>?s=40" class="img-rounded pull-right" style="display:block; margin-top:-5px; margin-left: 10px; margin-right: -20px"/>
                   <?php echo htmlspecialchars($_SESSION['user']); ?>
                 </a>
                 <ul class="dropdown-menu" role="menu">

@@ -185,12 +185,11 @@ Lightbox.prototype = {
 	var that = this
 
 	if (this.isShown && this.options.keyboard) {
-		this.$element.on('keyup.dismiss.lightbox', function ( e ) {
-			console.log(e);
+		$(document).on('keyup', function ( e ) {
 			e.which == 27 && that.hide()
 		})
 	} else if (!this.isShown) {
-		this.$element.off('keyup.dismiss.lightbox')
+		$(document).off('keyup')
 	}
 }
 

@@ -1,4 +1,4 @@
-        <div class="navbar navbar-fixed-bottom navbar-inverse">
+        <div class="navbar navbar-fixed-bottom navbar-inverse" id="bottom-navbar">
             <div class="navbar-inner">
                 <form class="navbar-search pull-right" onsubmit="alert('Just a demo.');return false">
                     <input type="text" class="search-query" placeholder="Search">
@@ -113,19 +113,22 @@
     </script>
     <script id="attachmentTemplate" type="text/template">
         {{#isImage}}
-            <a onclick="$('#lightbox-{{id}}').lightbox();return false" href="#">{{name}}</a>
-            <div class="lightbox fade" id="lightbox-{{id}}" style="display: none;">
-                <div class='lightbox-content'>
-                    <img src="{{url}}">
-                </div>
-            </div>
+            <a onclick="curLightbox = $('#lightbox-{{id}}').lightbox();return false" href="#">{{name}}</a>
         {{/isImage}}
         {{#isNotImage}}
           <p><a href="{{url}}">{{name}}</a></p>
         {{/isNotImage}}
     </script>
+    <script id="attachmentTemplateLightbox" type="text/template">
+        <div class="lightbox fade" id="lightbox-{{id}}" style="display: none;">
+            <div class='lightbox-content'>
+                <img src="{{url}}">
+            </div>
+        </div>
+    </script>
     <script>
-        var highestZ = 100;
+        var curLightbox = false;
+        var highestZ = 1;
         $(document).ready(function(){
             $('.datepicker').datepicker();
             $('.colorpicker').colorpicker();
@@ -158,6 +161,10 @@
           var attachmentHTML = $('<div>');
           $.each(data.attachments, function(i, attachment){
             attachmentHTML.append(Mustache.to_html($('#attachmentTemplate').html(), attachment));
+            //Lives outside the other div since it mucks up the z-index
+            if (attachment.isImage) {
+                $('.container').append(Mustache.to_html($('#attachmentTemplateLightbox').html(), attachment));
+            }
           });
           $('div.attachments', html).html(attachmentHTML.html());
           $('.container').append(html);
