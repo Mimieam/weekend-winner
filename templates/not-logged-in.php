@@ -8,18 +8,17 @@
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
+      html, .container { height: 100%; }
       body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
+        height: 100%;
+        background: #4270ae url(img/CeliaShake.jpg) no-repeat;
       }
-
-      .signin-box {
+      #signin-box {
         max-width: 300px;
         padding: 19px 29px 29px;
-        margin: 0 auto 20px;
+        margin: 0 auto;
         background-color: #fff;
-        border: 1px solid #e5e5e5;
+        border: 5px solid #23498a;
         -webkit-border-radius: 5px;
            -moz-border-radius: 5px;
                 border-radius: 5px;
@@ -27,10 +26,9 @@
            -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
                 box-shadow: 0 1px 2px rgba(0,0,0,.05);
       }
-      .signin-box h2 {
+      #signin-box h2 {
         margin-bottom: 10px;
       }
-
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
     <link href="css/persona-buttons.css" rel="stylesheet">
@@ -46,14 +44,12 @@
   <body>
 
     <div class="container">
-
-      <div class="signin-box">
+      <div id="signin-box">
         <h2>Sign in to BubbleDo</h2>
 
         <a href="#" class="persona-button" id="signin"><span>Sign in with your Email</span></a>
         <p>No account creation necessary - we're powered by <a href="http://www.mozilla.org/en-US/persona/">Persona</a> to protect your online identity.</p>
-      </form>
-
+      </div>
     </div> <!-- /container -->
 
     <!-- Le javascript
@@ -61,6 +57,12 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="js/flexverticalcenter.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('#signin-box').flexVerticalCenter();
+      });
+    </script>
     <?php
     include dirname(__FILE__).'/persona-handler.inc.php';
     ?>

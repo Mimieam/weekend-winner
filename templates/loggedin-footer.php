@@ -3,7 +3,7 @@
                 <form class="navbar-search pull-right" onsubmit="alert('Just a demo.');return false">
                     <input type="text" class="search-query" placeholder="Search">
                 </form>
-                <ul class="pager" style="margin:4px 0 0;padding:0">
+                <ul class="pager" style="margin:4px 0 0;padding:0" id="bottom-tasks">
                     <li><a href="#">Create Task</a></li>
                     <li class="disabled"><a href="#">Create Associated Task</a></li>
                     <li class="disabled"><a href="#">Create Association</a></li>
@@ -16,6 +16,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="js/noisy.js"></script>
     <script src="js/bootstrap.js"></script>
     <?php
     include dirname(__FILE__).'/persona-handler.inc.php';
@@ -62,6 +63,20 @@
       </form>
     </div>
     <script>
+        $('body').noisy({
+            'intensity' : 1,
+            'size' : 200,
+            'opacity' : 0.08,
+            'fallback' : '',
+            'monochrome' : false
+        }).css('background-color', '#254c8d');
+        $('#bottom-tasks a').noisy({
+            'intensity' : 1,
+            'size' : 200,
+            'opacity' : 0.08,
+            'fallback' : '',
+            'monochrome' : false
+        }).css('background-color', '#070903');
         $('.dropdown-toggle').dropdown();
         <?php
         if (isset($_SESSION['message'])) {
@@ -82,6 +97,6 @@
         $('#changeTopic').on('shown', function () {
             $('#changeTopic input[type="text"]').focus();
         });
-        </script>
+    </script>
   </body>
 </html>
