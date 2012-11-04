@@ -42,6 +42,27 @@ class Task {
 					VALUES
 					($taskId1, $taskId2)");
 			}
+			if (!empty($_FILES['task-attachment']['name'])) {
+				//Push the file to S3
+				$s3 = new AmazonS3();
+				$fileName = $taskId .'-' . $_FILES['task-attachment']['name'];
+				//move the file  
+				$s3->create_object(
+					'bubbledo',
+					$fileName,
+					array(
+						'fileUpload' => $_FILES['task-attachment']['tmp_name'],
+						'acl' => AmazonS3::ACL_PUBLIC,
+						'contentType' => $_FILES['task-attachment']['type'],
+					)
+				);
+				$attachmentPath = $GLOBALS['conn']->real_escape_string($fileName);
+				$GLOBALS['conn']->query("
+					INSERT INTO task_attachments
+					(task_id, attachment_path)
+					VALUES
+					($taskId, '$attachmentPath')");
+			}
 			return true;
 		} else {
 			return false;
@@ -50,8 +71,11 @@ class Task {
 
 	public static function reposition($id, $top, $left, $user) {
 		$taskId = $GLOBALS['conn']->real_escape_string($id);
-		$coords = $GLOBALS['conn']->real_escape_string($top).',';
-		$coords .= $GLOBALS['conn']->real_escape_string($left);
+		$top = round($GLOBALS['conn']->real_escape_string($top));
+		$left = round($GLOBALS['conn']->real_escape_string($left));
+		$coords = !empty($top) ? $top : '0';
+		$coords .= ',';
+		$coords .= !empty($left) ? $left : '0';
 		$GLOBALS['conn']->query("
 			UPDATE tasks
 			SET task_coord='$coords'

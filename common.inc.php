@@ -10,6 +10,9 @@ include APP_PATH.'classes/User.class.php';
 include APP_PATH.'classes/Topic.class.php';
 include APP_PATH.'classes/Task.class.php';
 
+include APP_PATH.'/classes/Amazon/sdk.class.php';
+include APP_PATH.'/classes/Amazon/services/s3.class.php';
+
 session_start();
 if (isset($_SESSION['user'])) {
 	$user = new User($_SESSION['user']);

@@ -45,6 +45,8 @@ switch ($cmd) {
 $topics = $user->getTopics();
 $tasks = $topic->getTasks();
 $pageTitle = $topic->getName();
+$topicAction = true;
 include 'templates/loggedin-header.php';
+include 'templates/task-cloud.php';
 include 'templates/loggedin-footer.php';
 unset($_SESSION['message']);

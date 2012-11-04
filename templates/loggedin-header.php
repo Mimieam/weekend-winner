@@ -8,6 +8,7 @@
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/bootstrap-lightbox.css" rel="stylesheet">
     <link href="css/datepicker.css" rel="stylesheet">
     <link href="css/colorpicker.css" rel="stylesheet">
     <link href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" rel="stylesheet">
@@ -46,7 +47,9 @@
     <![endif]-->
     <link href="css/persona-buttons.css" rel="stylesheet">
     <script src="https://login.persona.org/include.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+    <script src="js/mustache.js"></script>
   </head>
 
   <body>
@@ -57,7 +60,7 @@
             <span class="brand">BubbleDo</span>
             <ul class="nav" role="navigation">
               <?php foreach ($topics AS $topicId => $topicName): ?>
-                <?php if ($user->getViewedTopicId() == $topicId): ?>
+                <?php if ($topicAction === true && $user->getViewedTopicId() == $topicId): ?>
                   <li class="active">
                     <a href="#" data-toggle="modal" data-target="#changeTopic"><i class="icon-edit icon-white"></i>&nbsp;&nbsp;<?php echo htmlspecialchars($topicName); ?></a>
                   </li>
@@ -65,7 +68,9 @@
                   <li><a href=".?topic=<?php echo $topicId; ?>"><?php echo htmlspecialchars($topicName); ?></a></li>
                 <?php endif; ?>
               <?php endforeach; ?>
-              <li><a href="#" data-toggle="modal" data-target="#newTopic"><i class="icon-plus-sign icon-white"></i>&nbsp;Create Topic</a>
+              <?php if ($topicAction === true): ?>
+                <li><a href="#" data-toggle="modal" data-target="#newTopic"><i class="icon-plus-sign icon-white"></i>&nbsp;Create Topic</a>
+              <?php endif; ?>
               </li>
             </ul>
             <ul class="nav pull-right">
