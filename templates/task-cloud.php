@@ -4,9 +4,9 @@
                     <input type="text" class="search-query" placeholder="Search">
                 </form>
                 <ul class="pager" style="margin:4px 0 0;padding:0" id="bottom-tasks">
-                            <li id="create-task"><a href="#" data-toggle="modal" data-target="#newTask"> <img src= "http://www.bubbledo.co/img/new-tasks-icon.png"> </a></li>
-                              <li id="create-assoc-task" class="disabled"><a href="#" onclick="alert('Coming soon')" data-toggle="modal" data-target="#newAssocTask"> <img src= "http://www.bubbledo.co/img/new-linked-tasks-icon.png"> </a> </li>
-                              <li id="create-assoc" class="disabled"><a href="#" onclick="alert('Coming soon')" data-toggle="modal" data-target="#newAssoc"> <img src= "http://www.bubbledo.co/img/link-tasks-icon.png"> </a> </li>
+                  <li id="create-task"><a style="border:0" href="#" data-toggle="modal" data-target="#newTask"><img src= "http://www.bubbledo.co/img/new-tasks-icon.png"> </a></li>
+                  <li id="create-assoc-task" class="disabled"><a style="border:0" href="#" onclick="alert('Coming soon')" data-toggle="modal" data-target="#newAssocTask"> <img src= "http://www.bubbledo.co/img/new-linked-tasks-icon.png"> </a> </li>
+                  <li id="create-assoc" class="disabled"><a style="border:0" href="#" onclick="alert('Coming soon')" data-toggle="modal" data-target="#newAssoc"> <img src= "http://www.bubbledo.co/img/link-tasks-icon.png"> </a> </li>
                 </ul>
                 <!--
                 <ul class="pager" style="margin:4px 0 0;padding:0" id="bottom-tasks">

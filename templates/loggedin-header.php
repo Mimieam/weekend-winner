@@ -124,6 +124,22 @@
         display: block;
       }
       .datepicker {z-index:12000;}
+      #bottom-tasks li {
+        margin-right: 20px;
+      }
+      #bottom-tasks li a {
+        zoom: 1;
+        filter: alpha(opacity=50);
+        opacity: 0.5;
+      }
+      #bottom-tasks li img {
+        height: 24px;
+      }
+      #bottom-tasks li a:hover {
+        zoom: 1;
+        filter: alpha(opacity=100);
+        opacity: 1.0;
+      }
     </style>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
