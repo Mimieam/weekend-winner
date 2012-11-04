@@ -69,6 +69,22 @@ class Task {
 		}
 	}
 
+	public static function delete($taskId, $topic, $user) {
+		/**
+		 * @todo Get tags working
+		 */
+		$taskId = $GLOBALS['conn']->real_escape_string($taskId);
+		$GLOBALS['conn']->query("
+			DELETE FROM tasks
+			WHERE user_id=".$user->getUserId()." AND task_id='$taskId'");
+		if ($GLOBALS['conn']->affected_rows) {
+			$GLOBALS['conn']->query("
+				DELETE FROM task_assocs
+				WHERE task_id_1='$taskId' OR task_id_2='$taskId'");
+		}
+		return true;
+	}
+
 	public static function reposition($id, $top, $left, $user) {
 		$taskId = $GLOBALS['conn']->real_escape_string($id);
 		$top = round($GLOBALS['conn']->real_escape_string($top));

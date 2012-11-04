@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title><?php echo $pageTitle; ?> &middot; BubbleDo</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Le styles -->
@@ -55,12 +56,18 @@
       div.task-container {
         z-index: 0;
       }
+      div.task-container .hide-not-active {
+        display: none;
+      }
       div.task-container.dragging {
         cursor: move;
       }
       div.task-container.active {
         border-width: 12px;
         cursor: default;
+      }
+      div.task-container.active .hide-not-active {
+        display: block;
       }
     </style>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->

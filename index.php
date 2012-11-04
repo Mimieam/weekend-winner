@@ -40,6 +40,11 @@ switch ($cmd) {
 		header("Location: .");
 		exit;
 	break;
+	case 'delete-task':
+		Task::delete($_REQUEST['task-id'], $topic, $user);
+		header("Location: .");
+		exit;
+	break;
 }
 
 $topics = $user->getTopics();
