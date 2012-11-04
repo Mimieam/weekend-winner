@@ -1,58 +1,16 @@
-<!DOCTYPE HTML>
-<html>
+j<!DOCTYPE html>
+<html lang="en">
   <head>
-    <style>
-      body {
-        margin: 0px;
-        padding: 0px;
-      }
-      canvas {
-        border: 1px solid #9C9898;
-      }
-    </style>
-    <script src="http://www.html5canvastutorials.com/libraries/kinetic-v4.0.0.js"></script>
+    <meta charset="utf-8">
+    <title>JSON Loader</title>
+  
+  <script src="http://www.html5canvastutorials.com/libraries/kinetic-v4.0.0.js">
+    </script>
+    
+    
     <script>
-      function updateDottedLines(layer) {
-        
-      
-        
-        var cA = layer.get('#cA')[0];
-        var cB = layer.get('#cB')[0];
 
-                var t1 = layer.get('#t1')[0];
-
-        var lineA = layer.get('#lineA')[0];
-
-        lineA.setPoints([cA.attrs.x, cA.attrs.y, cB.attrs.x, cB.attrs.y]);
-        
-        t1.attrs.x = cA.attrs.x - t1.getTextWidth() / 2;
-        t1.attrs.y = cA.attrs.y - t1.getTextHeight() / 2;
-        
-        //cA.setRadius(t1.getTextWidth() / 2 + 10);
-        cA.setRadius({x:t1.getTextWidth() / 2 + 10,y:(t1.getTextWidth() / 2 + 10) * .8});
-        
-        
-      }
-      function buildAnchor(layer, x, y) {
-
-
-
-        // add hover styling
-        anchor.on("mouseover", function() {
-          document.body.style.cursor = "pointer";
-          this.setStrokeWidth(4);
-          layer.draw();
-        });
-        anchor.on("mouseout", function() {
-          document.body.style.cursor = "default";
-          this.setStrokeWidth(0);
-          layer.draw();
-        });
-        
-        layer.add(anchor);
-		return anchor;
-      }
-
+       
 
       window.onload = function() {
         var stage = new Kinetic.Stage({
@@ -62,22 +20,17 @@
         });
 
         var layer = new Kinetic.Layer();
-        //var curveLayer = new Kinetic.Layer();
-
-
-		 // bound below y=50
-        var t1 = new Kinetic.Text({
-          id: "t1",
-          x: 2,
-          y: 2,
-          fill: '#aaffff',
+        
+                var t1 = new Kinetic.Text({
+          x: 0,
+          y: 0,
+          fill: '#ffd',
           strokeWidth: 0,
           fontSize: 18,
           fontFamily: 'Calibri',
-          text: 'hi there, i m an ellipse',
+          text: '1',
           textFill: 'black',
           padding: 1,
-          draggable: true,
           dragBoundFunc: function(pos) {
             var newY = pos.y < 50 ? 50 : pos.y;
             return {
@@ -85,70 +38,243 @@
               y: newY
             };
           }
-        });        
+        });
         
         
-          var lineA = new Kinetic.Line({
-          points: [73, 70, 340, 23],
-          strokeWidth: 3,
-          stroke: "black",
-          lineCap: "round",
-          id: "lineA",
-          opacity: 0.3
+                        var t2 = new Kinetic.Text({
+          x: 0,
+          y: 0,
+          fill: '#ffd',
+          strokeWidth: 0,
+          fontSize: 18,
+          fontFamily: 'Calibri',
+          text: '2',
+          textFill: 'black',
+          padding: 1,
+          dragBoundFunc: function(pos) {
+            var newY = pos.y < 50 ? 50 : pos.y;
+            return {
+              x: pos.x,
+              y: newY
+            };
+          }
+        });
+        
+        
+                        var t3 = new Kinetic.Text({
+          x: 0,
+          y: 0,
+          fill: '#ffd',
+          strokeWidth: 0,
+          fontSize: 18,
+          fontFamily: 'Calibri',
+          text: '3',
+          textFill: 'black',
+          padding: 1,
+          dragBoundFunc: function(pos) {
+            var newY = pos.y < 50 ? 50 : pos.y;
+            return {
+              x: pos.x,
+              y: newY
+            };
+          }
         });
 
-        
-        var cA = new Kinetic.Ellipse({
-          x: 200,
-          y: 300,
-          radius: {x:90,y:70},
-          stroke: "#666",
-          fill: "#aaffff",
-          strokeWidth: 2,
-          id: "cA",
-          draggable: true
-        }); 
-        
-        
-        var cB = new Kinetic.Circle({
-          x: 200,
-          y: 50,
-          radius: 30,
-          stroke: "#666",
-          fill: "#ffd",
-          strokeWidth: 2,
-          id: "cB",
-          draggable: true
-        }); 
-		
 
         
-		layer.add(lineA);
-        layer.add(cB);
-        layer.add(cA);
-        layer.add(t1);
         
+        var line1 = new Kinetic.Line({
+                                    points: [200, 200, 300, 300],
+                                    strokeWidth: 3,
+                                    stroke: "black",
+                                    lineCap: "round",
+                            draggable: true,
+                                    opacity: 0.3
+                                  })
+            
+                    var line2= new Kinetic.Line({
+                                    points: [200, 200, 300, 110],
+                                    strokeWidth: 3,
+                                    stroke: "red",
+                                    lineCap: "round",
+                            draggable: true,
+                                    opacity: 0.3
+                                  })
+        
+                        
+                        /////////////buttons//////////////////
+        var circle1 =    new Kinetic.Ellipse({
+                          x: 0,
+                          y: 0,
+                          radius: {x:60,y:30},
+                          stroke: "#666",
+                          fill: "#ffd",
+                          strokeWidth: 2
+                        })
+            
+ 
+            
+            
+          var circle2 =  new Kinetic.Ellipse({
+                          x: 0,
+                          y: 0,
+                          radius: {x:60,y:30},
+                          stroke: "#666",
+                          fill: "#ffd",
+                          strokeWidth: 2
+                        })
+              
+    
+
+              
+              
+          var circle3 =  new Kinetic.Ellipse({
+                          x: 0,
+                          y: 0,
+                          radius: {x:60,y:30},
+                          stroke: "#666",
+                          fill: "#ffd",
+                          strokeWidth: 2
+                        })
+	 
+                        /////////////buttons//////////////////
+            
 
         
-        /*
-         * add custom property curve objects to layer so that
-         * they can be modified by reference
-         */
+        t1.attrs.x = circle1.attrs.x - t1.getTextWidth() / 2;
+        t1.attrs.y = circle1.attrs.y - t1.getTextHeight() / 2;
+
+        t2.attrs.x = circle2.attrs.x - t2.getTextWidth() / 2;
+        t2.attrs.y = circle2.attrs.y - t2.getTextHeight() / 2;
+
+
+        t3.attrs.x = circle3.attrs.x - t3.getTextWidth() / 2;
+        t3.attrs.y = circle3.attrs.y - t3.getTextHeight() / 2;
         
-		        layer.beforeDraw(function() {
-          //drawCurves(curveLayer.getCanvas(), layer.quad, layer.bezier);
-          updateDottedLines(layer);
+        
+        
+        var groupCircle1 =  new Kinetic.Group({
+          x: 0,
+          y: 0,
+          draggable: true
         });
 
+        groupCircle1.add(circle1);
+        groupCircle1.add(t1);
+ 
         
+        
+        
+        var groupCircle2 =  new Kinetic.Group({
+          x: 0,
+          y: 0,
+          draggable: true
+        });
+       
+        groupCircle2.add(circle2);
+        groupCircle2.add(t2); 
+        
+        var groupCircle3 =  new Kinetic.Group({
+          x: 0,
+          y: 0,
+          draggable: true
+        });
+       
+        groupCircle3.add(circle3);
+        groupCircle3.add(t3);
+        
+       
 
-        //stage.add(curveLayer);
+
+
+
+
+        
+        
+        layer.draw();
+        
+        layer.add(line1);
+        layer.add(line2);
+
+        
+        layer.add(groupCircle1);
+        layer.add(groupCircle2);
+        layer.add(groupCircle3);
+
+              
+                       groupCircle1.attrs.x = 200
+                        groupCircle1.attrs.y = 200
+                          
+
+                       groupCircle2.attrs.x = 300
+                        groupCircle2.attrs.y = 100
+                          
+
+
+                       groupCircle3.attrs.x = 300
+                        groupCircle3.attrs.y = 300
+                          
+                          
+
+                     groupCircle1.on("dragmove", function() { 
+
+                                                                    
+                       line2.setPoints([groupCircle2.attrs.x, groupCircle2.attrs.y, groupCircle1.attrs.x, groupCircle1.attrs.y]);
+                         
+                         line1.setPoints([groupCircle3.attrs.x, groupCircle3.attrs.y, groupCircle1.attrs.x, groupCircle1.attrs.y]);  
+  
+                         
+                         
+                                           
+                       
+                       
+                    });
+        
+        
+                   groupCircle2.on("dragmove", function() {
+
+
+                      line2.setPoints([groupCircle2.attrs.x, groupCircle2.attrs.y, groupCircle1.attrs.x, groupCircle1.attrs.y]); 
+                     
+                     
+
+                                               if(this.attrs.y < 15){
+                            layer.remove(this);
+                            layer.remove(line2);
+                            
+                            layer.draw();
+                     }
+
+                       
+                       
+                       
+                    });
+        
+        
+                           groupCircle3.on("dragmove", function() { 
+
+                line1.setPoints([groupCircle3.attrs.x, groupCircle3.attrs.y, groupCircle1.attrs.x, groupCircle1.attrs.y]);
+
+                    });
+        
+        
+        
+        
+        
+        
         stage.add(layer);
       };
+      
+
+      
 
     </script>
   </head>
-  <body onmousedown="return false;">
-    <div id="container"></div>
+  <body>
+        <div id="container"></div>
+
+    <script>
+
+    </script>
   </body>
 </html>
