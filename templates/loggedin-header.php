@@ -10,7 +10,6 @@
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
     <link href="css/bootstrap-lightbox.css" rel="stylesheet">
     <link href="css/datepicker.css" rel="stylesheet">
-    <link href="css/colorpicker.css" rel="stylesheet">
     <link href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" rel="stylesheet">
     <style>
       html {
@@ -38,6 +37,7 @@
       }
       div.task-container {
         position: absolute;
+        background: #ffffff;
         border: 8px solid #ec9912;
         width: 240px;
         height: 60px;
@@ -48,7 +48,7 @@
         cursor: pointer;
       }
 
-      .colorpicker, .datepicker, {z-index:12000;}
+      .datepicker, {z-index:12000;}
       div.navbar {
         z-index:400;
       }

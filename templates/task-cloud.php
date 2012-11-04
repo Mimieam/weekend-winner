@@ -66,9 +66,13 @@
             </div>
             <div id="modal-body-extended" style="display:none">
               <div class="control-group">
-                <label class="control-label" for="taskColor">Color</label>
+                <label class="control-label" for="taskColor">Importance</label>
                 <div class="controls">
-                  <input type="text" id="taskColor" name="task-color" class="colorpicker">
+                  <select name="task-color" id="taskColor" onchange="$(this).css('background-color', '#'+$(this).val())" style="background-color:#d66279">
+                    <option value="ff3300" style="background-color:#ff3300">High</option>
+                    <option value="d66279" style="background-color:#d66279" selected="selected">Normal</option>
+                    <option value="ac90f2" style="background-color:#ac90f2">Low</option>
+                  </select>
                 </div>
               </div>
               <div class="control-group">
@@ -131,7 +135,6 @@
         var highestZ = 1;
         $(document).ready(function(){
             $('.datepicker').datepicker();
-            $('.colorpicker').colorpicker();
             $('#bottom-tasks a').noisy({
                 'intensity' : 1,
                 'size' : 200,
@@ -169,7 +172,7 @@
           $('div.attachments', html).html(attachmentHTML.html());
           $('.container').append(html);
           $('#task-'+data.id).css({
-            'backgroundColor': '#'+data.color,
+            'border-color': '#'+data.color,
             top: data.top+'px',
             left: data.left+'px'
           });
