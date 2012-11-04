@@ -41,7 +41,7 @@ class Topic {
 		$topicName = $GLOBALS['conn']->real_escape_string($topicName);
 		$topicId = $GLOBALS['conn']->real_escape_string($topicId);
 		$GLOBALS['conn']->query("
-			UPDATE INTO topics
+			UPDATE topics
 			SET topic_name='$topicName'
 			WHERE topic_id=$topicId AND user_id=".$user->getUserId());
 	}
