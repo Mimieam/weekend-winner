@@ -90,7 +90,7 @@
               <div class="control-group">
                 <label class="control-label" for="taskDate">Date</label>
                 <div class="controls">
-                  <input type="text" id="taskDate" name="task-date" class="datepicker">                
+                  <input type="text" id="taskDate" name="task-date" class="datepicker">
                 </div>
               </div>
               <div class="control-group">

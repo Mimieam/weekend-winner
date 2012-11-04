@@ -33,43 +33,78 @@
       .container {
         position: relative;
       }
-      #top-navbar > div, #bottom-navbar > div{
-        height: 48px;
+      #top-navbar {
+        background: #000000; /* Old browsers */
+        background: -moz-linear-gradient(top,  #000000 0%, #00213f 17%, #006f8b 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(17%,#00213f), color-stop(100%,#006f8b)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #000000 0%,#00213f 17%,#006f8b 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #000000 0%,#00213f 17%,#006f8b 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #000000 0%,#00213f 17%,#006f8b 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #000000 0%,#00213f 17%,#006f8b 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#006f8b',GradientType=0 ); /* IE6-9 */        
       }
+      #bottom-navbar div.navbar-inner {
+        border-top: 0;
+        background: #006f8b; /* Old browsers */
+        background: -moz-linear-gradient(top,  #006f8b 0%, #00213f 83%, #000000 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#006f8b), color-stop(83%,#00213f), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #006f8b 0%,#00213f 83%,#000000 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #006f8b 0%,#00213f 83%,#000000 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #006f8b 0%,#00213f 83%,#000000 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #006f8b 0%,#00213f 83%,#000000 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006f8b', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+      }
+      #top-navbar > div {
+        background: transparent;
+        height: 48px;
+        border-bottom: 0;
+      }
+      div.navbar {
+        z-index:400;
+      }
+      #top-navbar ul.nav.left-nav {
+        margin: 0 0 -14px;
+        padding: 0;
+        height: auto;
+      }
+      #top-navbar ul.nav.left-nav li {
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+      #top-navbar ul.nav.left-nav li a {
+        padding-top: 26px;
+        padding-bottom: 6px;
+        margin-bottom: 0;
+      }
+
       div.task-container {
         border: 8px solid #ec9912;
         cursor: pointer;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      border-radius: 10px;
-      -moz-background-clip: padding; 
-      -webkit-background-clip: padding-box; background-clip: padding-box;
-      -webkit-box-shadow: 0px 0px 8px 0px #00213f;
-              box-shadow: 0px 0px 8px 0px #00213f;
-      background: #ffffff; /* Old browsers */
-      background: -moz-linear-gradient(top,  #ffffff 47%, #c6e9fa 100%); /* FF3.6+ */
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(47%,#ffffff), color-stop(100%,#c6e9fa)); /* Chrome,Safari4+ */
-      background: -webkit-linear-gradient(top,  #ffffff 47%,#c6e9fa 100%); /* Chrome10+,Safari5.1+ */
-      background: -o-linear-gradient(top,  #ffffff 47%,#c6e9fa 100%); /* Opera 11.10+ */
-      background: -ms-linear-gradient(top,  #ffffff 47%,#c6e9fa 100%); /* IE10+ */
-      background: linear-gradient(to bottom,  #ffffff 47%,#c6e9fa 100%); /* W3C */
-      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c6e9fa',GradientType=0 ); /* IE6-9 */
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -moz-background-clip: padding; 
+        -webkit-background-clip: padding-box; background-clip: padding-box;
+        -webkit-box-shadow: 0px 0px 8px 0px #00213f;
+                box-shadow: 0px 0px 8px 0px #00213f;
+        background: #ffffff; /* Old browsers */
+        background: -moz-linear-gradient(top,  #ffffff 47%, #c6e9fa 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(47%,#ffffff), color-stop(100%,#c6e9fa)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #ffffff 47%,#c6e9fa 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #ffffff 47%,#c6e9fa 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #ffffff 47%,#c6e9fa 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #ffffff 47%,#c6e9fa 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c6e9fa',GradientType=0 ); /* IE6-9 */
         padding: 6px;
         position: absolute;
         min-width:80px;
         width: auto;
+        z-index: 0;
       }
       div.task-container div.task-content {
         padding: 3px;
       }
 
-      .datepicker, {z-index:12000;}
-      div.navbar {
-        z-index:400;
-      }
-      div.task-container {
-        z-index: 0;
-      }
       div.task-container .hide-not-active {
         display: none;
       }
@@ -83,6 +118,7 @@
       div.task-container.active .hide-not-active {
         display: block;
       }
+      .datepicker {z-index:12000;}
     </style>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -100,8 +136,8 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <div class="nav-collapse collapse">
-            <span class="brand">BubbleDo</span>
-            <ul class="nav" role="navigation">
+            <span class="brand" style="padding-bottom:5px"><img src="/img/bubbledo-logo-40.png" alt="logo" style="margin-top:-3px"/></span>
+            <ul class="nav left-nav"  role="navigation">
               <?php foreach ($topics AS $topicId => $topicName): ?>
                 <?php if ($topicAction === true && $user->getViewedTopicId() == $topicId): ?>
                   <li class="active">
@@ -118,8 +154,8 @@
             </ul>
             <ul class="nav pull-right">
               <li id="fat-menu" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  <img src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim($_SESSION['user']))); ?>?s=40" class="img-rounded pull-right" style="display:block; margin-top:-5px; margin-left: 10px; margin-right: -20px"/>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top:23px; padding-right: 20px">
+                  <img src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim($_SESSION['user']))); ?>?s=40" class="img-rounded pull-right" style="display:block; margin-top:-15px; margin-left: 10px; margin-right: -20px"/>
                   <?php echo htmlspecialchars($_SESSION['user']); ?>
                 </a>
                 <ul class="dropdown-menu" role="menu">
