@@ -33,11 +33,30 @@
       .container {
         position: relative;
       }
-      .colorpicker,.datepicker{z-index:12000;}
+      .colorpicker, .datepicker, .lightbox, .lightbox *  {z-index:12000 !important;}
+      .modal-backdrop {z-index: 1000 !important;}
+      .modal-backdrop * {z-index: 1001 !important;}
+      div.navbar {
+        z-index:12001;
+      }
       div.task-container {
         position: absolute;
-        border: 1px solid black;
-        width: 300px;
+        border: 8px solid #ec9912;
+        width: 240px;
+        height: 60px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1;
+      }
+      div.task-container.dragging {
+        cursor: move;
+      }
+      div.task-container.active {
+        border-width: 12px;
+        cursor: default;
       }
     </style>
 
@@ -75,7 +94,10 @@
             </ul>
             <ul class="nav pull-right">
               <li id="fat-menu" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo htmlspecialchars($_SESSION['user']); ?></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <img src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim($_SESSION['user']))); ?>?s=30" class="img-rounded pull-right" style="display:block; margin-top:-5px; margin-left: 10px; margin-right: -20px"/>
+                  <?php echo htmlspecialchars($_SESSION['user']); ?>
+                </a>
                 <ul class="dropdown-menu" role="menu">
                   <li role="menuitem"><a href="settings.php" class="navbar-link">Features &amp; Settings</a></li>
                   <li role="menuitem"><a href="#" class="navbar-link" id="signout">Logout</a></li>

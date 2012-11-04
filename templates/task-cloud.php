@@ -125,6 +125,7 @@
         {{/isNotImage}}
     </script>
     <script>
+        var highestZ = 100;
         $(document).ready(function(){
             $('.datepicker').datepicker();
             $('.colorpicker').colorpicker();
@@ -169,7 +170,12 @@
         });
         function bindCustomParts(domPiece) {
           $(domPiece).draggable({
+            start: function(event, ui) {
+                $(this).css('z-index', highestZ++);
+                $(this).addClass('dragging');
+            },
             stop: function(event, ui) {
+              $(this).removeClass('dragging');
               $.ajax({
                 type: 'post',
                 url: '/ajax/cmd.php',
@@ -184,13 +190,14 @@
           });
           $(domPiece).on("click", function(event){
             event.stopPropagation();
-            if ($(this).data('active')) {
-              $(this).css('border-width', '1px').data('active', false);
-              $('#create-assoc-task, #create-assoc').addClass('disabled');
-            } else {
+            if (!$(this).data('active')) {
+              $(this).css('z-index', highestZ++);
               unselectEverythingBut($(this).data('unique'));
-              $(this).css('border-width', '11px').data('active', true);
+              $(this).addClass('active').data('active', true);
               $('#create-assoc-task, #create-assoc').removeClass('disabled');
+            } else {
+              $(this).removeClass('active').data('active', false);
+              $('#create-assoc-task, #create-assoc').addClass('disabled');
             }
           });
         }
