@@ -135,6 +135,11 @@
     <script>
         var curLightbox = false;
         var highestZ = 1;
+        var resizeTimer;
+        $(window).resize(function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function(){window.location.reload()}, 100);
+        });
         $(document).ready(function(){
             $('.datepicker').datepicker();
             $('#bottom-tasks a').noisy({
@@ -181,7 +186,7 @@
           bindCustomParts($('#task-'+data.id));
         });
         function bindCustomParts(domPiece) {
-            /*
+        <?php if (!isset($_GET['lines'])): ?>
           $(domPiece).draggable({
             start: function(event, ui) {
                 $(this).css('z-index', highestZ++);
@@ -201,7 +206,7 @@
               });
             }
           });
-            */
+          <?php endif; ?>
           $(domPiece).on("click", function(event){
             event.stopPropagation();
             if (!$(this).data('active')) {
