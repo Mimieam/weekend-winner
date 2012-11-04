@@ -4,10 +4,17 @@
                     <input type="text" class="search-query" placeholder="Search">
                 </form>
                 <ul class="pager" style="margin:4px 0 0;padding:0" id="bottom-tasks">
+                            <li id="create-task"><a href="#" data-toggle="modal" data-target="#newTask"> <img src= "http://www.bubbledo.co/img/new-tasks-icon.png"> </a></li>
+                              <li id="create-assoc-task" class="disabled"><a href="#" onclick="alert('Coming soon')" data-toggle="modal" data-target="#newAssocTask"> <img src= "http://www.bubbledo.co/img/new-linked-tasks-icon.png"> </a> </li>
+                              <li id="create-assoc" class="disabled"><a href="#" onclick="alert('Coming soon')" data-toggle="modal" data-target="#newAssoc"> <img src= "http://www.bubbledo.co/img/link-tasks-icon.png"> </a> </li>
+                </ul>
+                <!--
+                <ul class="pager" style="margin:4px 0 0;padding:0" id="bottom-tasks">
                     <li id="create-task"><a href="#" data-toggle="modal" data-target="#newTask">Create Task</a></li>
                     <li id="create-assoc-task" class="disabled"><a href="#" data-toggle="modal" data-target="#newAssocTask">Create Associated Task</a></li>
                     <li id="create-assoc" class="disabled"><a href="#" data-toggle="modal" data-target="#newAssoc">Create Association</a></li>
                 </ul>
+              -->
             </div>
         </div>
     <!-- Modal -->
@@ -149,6 +156,8 @@
             $('#task-coord').val(middleY+','+middleX);
 
             $('.datepicker').datepicker();
+            $('#bottom-tasks a').css('background-color', '#070903');
+            /*
             $('#bottom-tasks a').noisy({
                 'intensity' : 1,
                 'size' : 200,
@@ -156,6 +165,7 @@
                 'fallback' : '',
                 'monochrome' : false
             }).css('background-color', '#070903');
+            */
             $('.dropdown-toggle').dropdown();
         });
         $('#delete-topic').click(function() {
