@@ -5,6 +5,7 @@ if ($user->isLoggedIn() === false) {
   exit;
 }
 $pageTitle = 'BubbleDo Features &amp; Settings';
+$topics = $user->getTopics();
 include 'templates/loggedin-header.php';
 ?>
 <h1>HOLD ON</h1>
