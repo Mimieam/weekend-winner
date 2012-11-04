@@ -34,7 +34,7 @@
             <input type="text" name="topic-name" placeholder="Type something…">
           </div>
           <div class="modal-footer">
-              <button class="btn" data-dismiss="modal" aria-hidden="true" onclick="$('#newTopic').modal('hide')">Cancel</button>
+              <button type="button" class="btn" data-dismiss="modal" aria-hidden="true" onclick="$('#newTopic').modal('hide')">Cancel</button>
               <button class="btn btn-primary">Create</button>
           </div>
         </fieldset>
@@ -45,7 +45,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 style="margin:0 0 -15px;padding:0">Update Topic</h3>
       </div>
-      <form method="post" action="/">
+      <form method="post" action="/" id="topic-form">
         <fieldset>
           <div class="modal-body">
             <input type="hidden" id="topic-id" name="topic-id" value="<?php echo $topic->getId(); ?>"/>
@@ -54,9 +54,9 @@
             <input type="text" name="topic-name" value="<?php echo htmlspecialchars($topic->getName()); ?>"/>
           </div>
           <div class="modal-footer">
-              <button class="btn" data-dismiss="modal" aria-hidden="true" onclick="$('#newTopic').modal('hide')">Cancel</button>
-              <button class="btn btn-danger" id="delete-topic">Delete</button>
-              <button class="btn btn-primary">Create</button>
+              <button type="button" class="btn btn-danger pull-left" id="delete-topic">Delete</button>
+              <button type="button" class="btn" data-dismiss="modal" aria-hidden="true" onclick="$('#newTopic').modal('hide')">Cancel</button>
+              <button class="btn btn-primary">Update</button>
           </div>
         </fieldset>
       </form>
@@ -71,10 +71,17 @@
         $('#delete-topic').click(function() {
             if (confirm('Are you sure?')) {
                 $('#topic-cmd').val('delete-topic');
+                $('#topic-form').submit();
             } else {
                 return false;
             }
         });
-    </script>
+        $('#newTopic').on('shown', function () {
+            $('#newTopic input[type="text"]').focus();
+        });
+        $('#changeTopic').on('shown', function () {
+            $('#changeTopic input[type="text"]').focus();
+        });
+        </script>
   </body>
 </html>
