@@ -9,23 +9,39 @@
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <style type="text/css">
-      html, .container { height: 100%; }
+      html, .container {
+          height: 100%;
+      }
       body {
         height: 100%;
-        background: #4270ae url(img/CeliaShake.jpg) no-repeat;
+        margin: 0;
+        background: #b2ffff url(img/CeliaShake.jpg) no-repeat;
+        /*
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background: #b2ffff;
+        background: -moz-linear-gradient(top,  #b2ffff 0%, #e6ffff 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b2ffff), color-stop(100%,#e6ffff));
+        background: -webkit-linear-gradient(top,  #b2ffff 0%,#e6ffff 100%);
+        background: -o-linear-gradient(top,  #b2ffff 0%,#e6ffff 100%);
+        background: -ms-linear-gradient(top,  #b2ffff 0%,#e6ffff 100%);
+        background: linear-gradient(to bottom,  #b2ffff 0%,#e6ffff 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2ffff', endColorstr='#e6ffff',GradientType=0 );
+        */
       }
       #signin-box {
-        max-width: 300px;
-        padding: 19px 29px 29px;
+        background: transparent url(img/do-homepage-trans.png) no-repeat;
+        width: 700px;
+        height: 398px;
+        position: relative;
         margin: 0 auto;
-        background-color: #fff;
-        border: 5px solid #23498a;
-        -webkit-border-radius: 5px;
-           -moz-border-radius: 5px;
-                border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      #signin-box > div {
+        position: absolute;
+        width: 280px;
+        right: 100px;
+        top: 180px;
+        text-align: center;
       }
       #signin-box h2 {
         margin-bottom: 10px;
@@ -46,10 +62,11 @@
 
     <div class="container">
       <div id="signin-box">
-        <h2>Sign in to BubbleDo</h2>
-
-        <a href="#" class="persona-button" id="signin"><span>Sign in with your Email</span></a>
-        <p>No account creation necessary - we're powered by <a href="http://www.mozilla.org/en-US/persona/">Persona</a> to protect your online identity.</p>
+        <div>
+          <h2>sign in:</h2>
+          <a href="#" class="persona-button" id="signin"><span>Sign in with your Email</span></a>
+          <p>sign in powered by <a href="http://www.mozilla.org/en-US/persona/">Persona</a></p>
+        </div>
       </div>
     </div> <!-- /container -->
 

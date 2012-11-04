@@ -91,7 +91,6 @@
                 <label class="control-label" for="taskDate">Date</label>
                 <div class="controls">
                   <input type="text" id="taskDate" name="task-date" class="datepicker">
-                  <span class="calendar_append"></span>
                 </div>
               </div>
               <div class="control-group">
