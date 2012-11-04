@@ -5,7 +5,7 @@ class Task {
 		 * @todo Get tags working
 		 */
 		$taskText = $GLOBALS['conn']->real_escape_string($taskForm['task-text']);
-		$taskColor = !empty($taskForm['task-color']) ? substr($GLOBALS['conn']->real_escape_string($taskForm['task-color']), 1) : 'ffffff';
+		$taskColor = !empty($taskForm['task-color']) ? strtolower(substr($GLOBALS['conn']->real_escape_string($taskForm['task-color']), 0, 6)) : 'd66279';
 		$taskDate = !empty($taskForm['task-date']) ? strtotime($taskForm['task-date']) : 0;
 		$taskReminder = !empty($taskForm['task-reminder']) ? strtotime($taskForm['task-reminder']) : 0;
 		$taskAssoc = false;
