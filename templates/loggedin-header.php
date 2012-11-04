@@ -19,16 +19,19 @@
       body {
         height: 100%;
         margin: 0;
+        background: #b2ffff url(img/bubble-do-blue-sky.jpg) no-repeat;
+        /*
         background-repeat: no-repeat;
         background-attachment: fixed;
-        background: #b2ffff; /* Old browsers */
-        background: -moz-linear-gradient(top,  #b2ffff 0%, #e6ffff 100%); /* FF3.6+ */
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b2ffff), color-stop(100%,#e6ffff)); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(top,  #b2ffff 0%,#e6ffff 100%); /* Chrome10+,Safari5.1+ */
-        background: -o-linear-gradient(top,  #b2ffff 0%,#e6ffff 100%); /* Opera 11.10+ */
-        background: -ms-linear-gradient(top,  #b2ffff 0%,#e6ffff 100%); /* IE10+ */
-        background: linear-gradient(to bottom,  #b2ffff 0%,#e6ffff 100%); /* W3C */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2ffff', endColorstr='#e6ffff',GradientType=0 ); /* IE6-9 */
+        background: #b2ffff;
+        background: -moz-linear-gradient(top,  #b2ffff 0%, #e6ffff 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b2ffff), color-stop(100%,#e6ffff));
+        background: -webkit-linear-gradient(top,  #b2ffff 0%,#e6ffff 100%);
+        background: -o-linear-gradient(top,  #b2ffff 0%,#e6ffff 100%);
+        background: -ms-linear-gradient(top,  #b2ffff 0%,#e6ffff 100%);
+        background: linear-gradient(to bottom,  #b2ffff 0%,#e6ffff 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b2ffff', endColorstr='#e6ffff',GradientType=0 );
+        */
       }
       .container {
         position: relative;
@@ -152,17 +155,19 @@
               <?php endif; ?>
               </li>
             </ul>
-            <ul class="nav pull-right">
+            <ul class="nav pull-right" style="margin-top:10px">
               <li id="fat-menu" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="padding-top:23px; padding-right: 20px">
-                  <img src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim($_SESSION['user']))); ?>?s=40" class="img-rounded pull-right" style="display:block; margin-top:-15px; margin-left: 10px; margin-right: -20px"/>
-                  <?php echo htmlspecialchars($_SESSION['user']); ?>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                  <li role="menuitem"><a href="settings.php" class="navbar-link">Features &amp; Settings</a></li>
-                  <li role="menuitem"><a href="about.php" class="navbar-link">About</a></li>
-                  <li role="menuitem"><a href="#" class="navbar-link" id="signout">Logout</a></li>
-                </ul>
+                <div>
+                  <img src="http://www.gravatar.com/avatar/<?php echo md5(strtolower(trim($_SESSION['user']))); ?>?s=40" class="img-rounded pull-right" style="display:block; margin-top:-2px; margin-left: 0px; margin-right: -10px; width:40px; height: 40px"/>
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white; display: inline-block; padding-top:18px; padding-right: 20px">
+                    <?php echo htmlspecialchars($_SESSION['user']); ?>
+                  </a>
+                  <ul class="dropdown-menu" role="menu">
+                    <li role="menuitem"><a href="settings.php" class="navbar-link">Features &amp; Settings</a></li>
+                    <li role="menuitem"><a href="about.php" class="navbar-link">About</a></li>
+                    <li role="menuitem"><a href="#" class="navbar-link" id="signout">Logout</a></li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </div><!--/.nav-collapse -->

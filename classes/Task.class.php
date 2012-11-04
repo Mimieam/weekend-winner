@@ -8,6 +8,12 @@ class Task {
 		$taskColor = !empty($taskForm['task-color']) ? strtolower(substr($GLOBALS['conn']->real_escape_string($taskForm['task-color']), 0, 6)) : 'd66279';
 		$taskDate = !empty($taskForm['task-date']) ? strtotime($taskForm['task-date']) : 0;
 		$taskReminder = !empty($taskForm['task-reminder']) ? strtotime($taskForm['task-reminder']) : 0;
+		$taskCoords = !empty($taskForm['task-coords']) ? $taskForm['task-coords'] : '0,0';
+		list($y, $x) = explode(',', $taskCoords);
+		if (round($x) != $x || round($y) != $y) {
+			$taskCoords = round($y).','.round($x);
+		}
+
 		$taskAssoc = false;
 		if (!empty($taskForm['task-assoc'])) {
 			$query = $GLOBALS['conn']->query("
@@ -24,7 +30,7 @@ class Task {
 			(user_id, task_createtime, task_content, task_coord,
 			 topic_id, task_eventtime, task_alerttime, task_color)
 			VALUES
-			(".$user->getUserId().", ".time().", '$taskText', '0,0',
+			(".$user->getUserId().", ".time().", '$taskText', '$taskCoords',
 			 ".$topic->getId().", $taskDate, $taskReminder, '$taskColor')");
 		$taskId = $GLOBALS['conn']->insert_id;
 		if (!empty($taskId)) {

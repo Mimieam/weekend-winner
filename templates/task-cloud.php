@@ -59,6 +59,7 @@
       <form method="post" action="/" id="new-task-form" class="form-horizontal" enctype="multipart/form-data">
         <fieldset>
           <div class="modal-body">
+            <input type="hidden" name="task-coords" value="" id="task-coord"/>
             <input type="hidden" name="cmd" value="new-task" id="task-cmd"/>
             <input type="text" name="task-text" placeholder="Your task information…" style="width:95%"/>
             <div style="padding:5px 0">
@@ -143,6 +144,10 @@
             resizeTimer = setTimeout(function(){window.location.reload()}, 100);
         });
         $(document).ready(function(){
+            var middleY = $(document).height()/2;
+            var middleX = $(document).width()/2;
+            $('#task-coord').val(middleY+','+middleX);
+
             $('.datepicker').datepicker();
             $('#bottom-tasks a').noisy({
                 'intensity' : 1,
