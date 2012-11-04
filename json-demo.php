@@ -41,5 +41,10 @@ $tasks = array(
 		'relations' => array(2, 1),
 	),
 );
+header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json');
-echo json_encode($tasks);
+if (isset($_GET['callback'])) {
+	echo $_GET['callback'] . '('.json_encode($tasks).')';
+} else {
+	echo json_encode($tasks);
+}
