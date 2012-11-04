@@ -91,6 +91,7 @@
                 <label class="control-label" for="taskDate">Date</label>
                 <div class="controls">
                   <input type="text" id="taskDate" name="task-date" class="datepicker">
+                  <span class="calendar_append"></span>
                 </div>
               </div>
               <div class="control-group">
@@ -111,10 +112,12 @@
     <script type="text/javascript" src="/js/jsplumb.js"></script>
     <script id="taskTemplate" type="text/template">
     <div class="task-container" id="task-{{id}}" data-unique="{{id}}">
-      <p>{{content}}</p>
-      {{#eventDate}}{{eventDate}}{{/eventDate}}
-      <div class="attachments"></div>
-      <div class="hide-not-active pull-right"><a href=".?cmd=delete-task&amp;task-id={{id}}">Delete</a></div>
+        <div class="task-content">
+          <p>{{content}}</p>
+          {{#eventDate}}{{eventDate}}{{/eventDate}}
+          <div class="attachments"></div>
+        </div>
+      <div class="hide-not-active pull-right"><a href=".?cmd=delete-task&amp;task-id={{id}}" style="color:#600; font-size: 12px"><i class="icon-remove"></i> Delete</a></div>
     </div>
     </script>
     <script id="attachmentTemplate" type="text/template">
