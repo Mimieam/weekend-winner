@@ -160,6 +160,7 @@
                 </a>
                 <ul class="dropdown-menu" role="menu">
                   <li role="menuitem"><a href="settings.php" class="navbar-link">Features &amp; Settings</a></li>
+                  <li role="menuitem"><a href="about.php" class="navbar-link">About</a></li>
                   <li role="menuitem"><a href="#" class="navbar-link" id="signout">Logout</a></li>
                 </ul>
               </li>
