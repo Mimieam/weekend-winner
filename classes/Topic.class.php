@@ -23,6 +23,34 @@ class Topic {
 		return $this->name;
 	}
 
+	public function getTasks() {
+		$tasks = array();
+		$query = $GLOBALS['conn']->query("
+			SELECT *
+			FROM tasks
+			WHERE topic_id=".$this->id);
+		while ($row = $query->fetch_assoc()) {
+			$tasks[$row['task_id']] = array(
+				'id' => $row['task_id'],
+				'content' => $row['task_content'],
+				'eventDate' => $row['task_eventtime'],
+				'color' => $row['task_color'],
+			);
+			list($tasks[$row['task_id']]['top'], $tasks[$row['task_id']]['left']) = explode(',', $row['task_coord']);
+			$tasks[$row['task_id']]['assocs'] = array();
+		}
+		if (count($tasks)) {
+			$query = $GLOBALS['conn']->query("
+				SELECT task_id_1, task_id_2
+				FROM task_assocs
+				WHERE task_id_2 IN (".implode(',', array_keys($tasks)).")");
+			while ($row = $query->fetch_object()) {
+				$tasks[$row->task_id_2]['assocs'][] = $row->task_id_1;
+			}
+		}
+		return $tasks;
+	}
+
 	public static function create($topicName, $user) {
 		$topicName = $GLOBALS['conn']->real_escape_string($topicName);
 		$GLOBALS['conn']->query("

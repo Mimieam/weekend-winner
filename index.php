@@ -4,6 +4,18 @@ if ($user->isLoggedIn() === false) {
   include 'templates/not-logged-in.php';
   exit;
 }
+
+if (empty($_REQUEST['topic'])) {
+	$topic = new Topic($user->getViewedTopicId(), $user);
+} else {
+	$topic = new Topic($_REQUEST['topic'], $user);
+	if ($topic->getId()) {
+		$user->setTopic($_REQUEST['topic']);
+	} else {
+		die('Invalid access attempt.');
+	}
+}
+
 $cmd = isset($_REQUEST['cmd']) ? $_REQUEST['cmd'] : false;
 switch ($cmd) {
 	case 'create-topic':
@@ -23,19 +35,15 @@ switch ($cmd) {
 		header("Location: .");
 		exit;
 	break;
+	case 'new-task':
+		Task::create($_REQUEST, $topic, $user);
+		header("Location: .");
+		exit;
+	break;
 }
 
 $topics = $user->getTopics();
-if (empty($_REQUEST['topic'])) {
-	$topic = new Topic($user->getViewedTopicId(), $user);
-} else {
-	$topic = new Topic($_REQUEST['topic'], $user);
-	if ($topic->getId()) {
-		$user->setTopic($_REQUEST['topic']);
-	} else {
-		die('Invalid access attempt.');
-	}
-}
+$tasks = $topic->getTasks();
 $pageTitle = $topic->getName();
 include 'templates/loggedin-header.php';
 include 'templates/loggedin-footer.php';

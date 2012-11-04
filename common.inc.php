@@ -8,6 +8,7 @@ if (empty($GLOBALS['conn'])) {
 $GLOBALS['conn']->set_charset("utf8");
 include APP_PATH.'classes/User.class.php';
 include APP_PATH.'classes/Topic.class.php';
+include APP_PATH.'classes/Task.class.php';
 
 session_start();
 if (isset($_SESSION['user'])) {
