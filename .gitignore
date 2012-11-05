@@ -1,3 +1,4 @@
 config.ini.php
 db-server.info
 startupTunnel
+classes/Amazon/config.inc.php
