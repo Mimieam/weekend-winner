@@ -66,7 +66,7 @@ class Topic {
 				$tasks[$row->task_id]['attachments'][$row->attachment_id] = array(
 					'id'   => $row->attachment_id,
 					'name' => substr($row->attachment_path, strlen($row->task_id) + 1),
-					'url'  => $s3->get_object_url('bubbledo', $row->attachment_path),
+					'url'  => $s3->get_object_url(S3_BUCKET, $row->attachment_path),
 				);
 				$type = strtolower(substr($row->attachment_path, -3));
 				if (in_array($type, array('png', 'gif', 'jpg'))) {

@@ -53,8 +53,8 @@ class Task {
 				$s3 = new AmazonS3();
 				$fileName = $taskId .'-' . $_FILES['task-attachment']['name'];
 				//move the file  
-				$s3->create_object(
-					'bubbledo',
+				$result = $s3->create_object(
+					S3_BUCKET,
 					$fileName,
 					array(
 						'fileUpload' => $_FILES['task-attachment']['tmp_name'],
